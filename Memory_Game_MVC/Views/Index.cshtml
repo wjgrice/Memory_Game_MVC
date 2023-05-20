@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model RetroFlipGame.Models.Game
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- meta tags, stylesheets, etc. -->
+    </head>
+    <body>
+        <header class='header'>
+            <div></div>
+        </header>
+        <div class='entire-game'>
+            <h1 class='title'>Retro Flip!</h1>
+            <h1 class='score'>Score: @Model.CurrentScore</h1>
+            <h1 class='hi-score'>High Score: @Model.HighScore</h1>
+            <div id="game" class='tile-container'>
+                @foreach (var tile in Model.Tiles)
+                {
+                    <div class="@tile.Color tile" matchState="@tile.MatchState"></div>
+                }
+            </div>
+            <div>
+                <h1 class='startbtn'>New Game</h1>
+            </div>
+        </div>
+        <script src="~/scripts/game.js"></script>
+    </body>
+    </html>
+
+
+}
